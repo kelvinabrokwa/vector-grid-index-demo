@@ -26,9 +26,6 @@ function createMap() {
     view_point_premise: [],
     view_statewide_business: []
   };
-  map.on('click', function(e) {
-    console.log(e);
-  });
 
   var pbfLayer = L.vectorGrid.protobuf(url, vectorTileOptions)
     .on('click', function(e) {

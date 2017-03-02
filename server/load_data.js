@@ -16,8 +16,8 @@ var parser = parse({delimiter: ','});
 
 parser.on('readable', function() {
   while (record = parser.read()) {
-    var lat = record[0];
-    var lon = record[1];
+    var lon = record[0];
+    var lat = record[1];
     var address = `${record[2]} ${record[3]}`;
     pgPool.connect(function(err, client, done) {
       if (err)

@@ -150,7 +150,6 @@ function getTile(view, x, y, z, cb) {
           f.properties.table = view;
           return f;
         }));
-        console.log(JSON.stringify(bboxGeom, 2, null), features);
 
         cb(null, { view: view, features: features }, tileHash);
       });
