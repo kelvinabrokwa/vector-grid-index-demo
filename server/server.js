@@ -24,7 +24,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-var PORT = 4001;
+var PORT = process.env.PORT;
 
 // postgres connection
 var pgPool = new pg.Pool({
@@ -32,7 +32,8 @@ var pgPool = new pg.Pool({
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
   host: process.env.DB_HOST,
-  port: process.env.DB_PORT
+  port: process.env.DB_PORT,
+  ssl: true
 });
 
 // redis connection
@@ -63,9 +64,10 @@ app.get('/tiles/:z/:x/:y.pbf', function(req, res) {
   x = ((x % n) + n) % n;
 
   var views = [
-    'view_businesses',
-    'view_statewide_businesses',
-    'view_point_premise'
+    //'view_businesses',
+    //'view_statewide_businesses',
+    //'view_point_premise'
+    'addresses'
   ];
 
   var q = queue.queue();
