@@ -10,11 +10,14 @@ function createMap() {
 
   map = L.map('map', {});
 
-  map.setView({lat: 43.6260475, lng: -70.295306}, 14);
+  //map.setView({lat: 43.6260475, lng: -70.295306}, 14);
+  map.setView({lat: 38.8027947337829, lng: -77.06497192382812}, 14);
 
   L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-  var url = 'http://tiles.vetro.io:4001/tiles/{z}/{x}/{y}.pbf';
+  //var url = 'http://tiles.vetro.io:4001/tiles/{z}/{x}/{y}.pbf';
+  var url = 'http://localhost:8080/tiles/{z}/{x}/{y}.pbf';
+  //var url = 'https://vectortiles.herokuapp.com/tiles/{z}/{x}/{y}.pbf';
 
   var vectorTileOptions = {
     rendererFactory: L.canvas.tile,
@@ -23,6 +26,9 @@ function createMap() {
     view_point_premise: [],
     view_statewide_business: []
   };
+  map.on('click', function(e) {
+    console.log(e);
+  });
 
   var pbfLayer = L.vectorGrid.protobuf(url, vectorTileOptions)
     .on('click', function(e) {

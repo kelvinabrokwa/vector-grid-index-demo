@@ -1,19 +1,31 @@
 {
-  "name": "vector-grid-index-demo",
-  "version": "1.0.0",
+  "name": "geojson_service",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kelvinabrokwa/vector-grid-index-demo.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "dev": "./node_modules/.bin/nodemon server.js"
   },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kelvinabrokwa/vector-grid-index-demo/issues"
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "@turf/bbox-polygon": "^3.7.3",
+    "body-parser": "~1.15.2",
+    "cors": "~2.8.1",
+    "csv-parse": "^1.2.0",
+    "d3-queue": "^3.0.3",
+    "express": "~4.14.0",
+    "mapnik": "^3.5.14",
+    "morgan": "~1.7.0",
+    "pg": "^6.1.2",
+    "redis": "^2.6.5",
+    "sphericalmercator": "~1.0.5",
+    "turf-feature": "^1.0.0",
+    "turf-featurecollection": "^1.0.1"
   },
-  "homepage": "https://github.com/kelvinabrokwa/vector-grid-index-demo#readme"
+  "devDependencies": {
+    "nodemon": "~1.11.0"
+  }
 }
